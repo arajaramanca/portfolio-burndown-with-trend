@@ -131,7 +131,7 @@
             
             var filter_array = [{ property: 'ObjectID', value: -1 }];
             Ext.Array.each(portfolioItemRefs, function(ref) {
-                filter_array.push({property:'ObjectID', value: Rally.util.Ref.getOidFromRef(ref)});
+                filter_array.push({property:'Milestones.ObjectID', value: Rally.util.Ref.getOidFromRef(ref)});
             });
             
             

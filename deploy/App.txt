@@ -3,12 +3,12 @@
 <head>
     <title>Portfolio Item Burnup With Trend</title>
     <!--  (c) 2016 CA Technologies.  All Rights Reserved. -->
-    <!--  Build Date: Tue May 31 2016 14:03:22 GMT-0700 (PDT) -->
+    <!--  Build Date: Wed Oct 10 2018 15:09:36 GMT-0700 (PDT) -->
     
     <script type="text/javascript">
-        var APP_BUILD_DATE = "Tue May 31 2016 14:03:22 GMT-0700 (PDT)";
-        var BUILDER = "jmartin";
-        var CHECKSUM = 105272613187;
+        var APP_BUILD_DATE = "Wed Oct 10 2018 15:09:36 GMT-0700 (PDT)";
+        var BUILDER = "rajan08";
+        var CHECKSUM = 105760365083;
     </script>
     
     <script type="text/javascript" src="/apps/2.1/sdk.js"></script>
@@ -491,20 +491,20 @@ Ext.define('Rally.technicalservices.Logger',{
                         columns: 1,
                         vertical: true,
                         items: [
-                            {
-                                name: "startdate",
-                                itemId: "actualstartdate",
-                                boxLabel: "Actual Start Date",
-                                baseLabel: "Actual Start Date",
-                                inputValue: "actualstartdate"
-                            },
-                            {
-                                name: "startdate",
-                                itemId: "plannedstartdate",
-                                boxLabel: "Planned Start Date",
-                                baseLabel: "Planned Start Date",
-                                inputValue: "plannedstartdate"
-                            },
+                            // {
+                            //     name: "startdate",
+                            //     itemId: "actualstartdate",
+                            //     boxLabel: "Actual Start Date",
+                            //     baseLabel: "Actual Start Date",
+                            //     inputValue: "actualstartdate"
+                            // },
+                            // {
+                            //     name: "startdate",
+                            //     itemId: "plannedstartdate",
+                            //     boxLabel: "Planned Start Date",
+                            //     baseLabel: "Planned Start Date",
+                            //     inputValue: "plannedstartdate"
+                            // },
                             {
                                 xtype: "container",
                                 layout: {
@@ -552,20 +552,20 @@ Ext.define('Rally.technicalservices.Logger',{
                                 boxLabel: "Today",
                                 inputValue: "today"
                             },
-                            {
-                                name: "enddate",
-                                itemId: "actualenddate",
-                                boxLabel: "Actual End Date",
-                                baseLabel: "Actual End Date",
-                                inputValue: "actualenddate"
-                            },
-                            {
-                                name: "enddate",
-                                itemId: "plannedenddate",
-                                boxLabel: "Planned End Date",
-                                baseLabel: "Planned End Date",
-                                inputValue: "plannedenddate"
-                            },
+                            // {
+                            //     name: "enddate",
+                            //     itemId: "actualenddate",
+                            //     boxLabel: "Actual End Date",
+                            //     baseLabel: "Actual End Date",
+                            //     inputValue: "actualenddate"
+                            // },
+                            // {
+                            //     name: "enddate",
+                            //     itemId: "plannedenddate",
+                            //     boxLabel: "Planned End Date",
+                            //     baseLabel: "Planned End Date",
+                            //     inputValue: "plannedenddate"
+                            // },
                             {
                                 xtype: "container",
                                 layout: {
@@ -765,7 +765,7 @@ Ext.define('Rally.technicalservices.Logger',{
         },
 
         _updateRadioLabel: function (radioComponent, date) {
-            var newLabelValue = radioComponent.baseLabel,
+            var newLabelValue = radioComponent && radioComponent.baseLabel,
                 formattedDate = this.dateToStringDisplay(date);
 
             if (formattedDate) {
@@ -968,7 +968,8 @@ Ext.define('Rally.technicalservices.Logger',{
             );
             
             Ext.create("Rally.data.wsapi.Store", {
-                model: Ext.identityFn("Portfolio Item"),
+                //model: Ext.identityFn("Portfolio Item"),
+                model: Ext.identityFn("Milestone"),
                 filters: filters,
                 context: this.requestContext,
                 autoLoad: true,
@@ -1089,7 +1090,7 @@ Ext.define('Rally.technicalservices.Logger',{
 
         _getChooserConfig: function () {
             return {
-                artifactTypes: ['portfolioitem'],
+                artifactTypes: ['Milestone'],
                 multiple: true,
                 height: 350,
                 title: 'Choose Portfolio Item(s) to Add',
@@ -1346,7 +1347,7 @@ Ext.define('Rally.technicalservices.Logger',{
             
             var filter_array = [{ property: 'ObjectID', value: -1 }];
             Ext.Array.each(portfolioItemRefs, function(ref) {
-                filter_array.push({property:'ObjectID', value: Rally.util.Ref.getOidFromRef(ref)});
+                filter_array.push({property:'Milestones.ObjectID', value: Rally.util.Ref.getOidFromRef(ref)});
             });
             
             

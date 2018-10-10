@@ -128,7 +128,8 @@
             );
             
             Ext.create("Rally.data.wsapi.Store", {
-                model: Ext.identityFn("Portfolio Item"),
+                //model: Ext.identityFn("Portfolio Item"),
+                model: Ext.identityFn("Milestone"),
                 filters: filters,
                 context: this.requestContext,
                 autoLoad: true,
@@ -249,7 +250,7 @@
 
         _getChooserConfig: function () {
             return {
-                artifactTypes: ['portfolioitem'],
+                artifactTypes: ['Milestone'],
                 multiple: true,
                 height: 350,
                 title: 'Choose Portfolio Item(s) to Add',

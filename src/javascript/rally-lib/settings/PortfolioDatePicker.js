@@ -36,20 +36,20 @@
                         columns: 1,
                         vertical: true,
                         items: [
-                            {
-                                name: "startdate",
-                                itemId: "actualstartdate",
-                                boxLabel: "Actual Start Date",
-                                baseLabel: "Actual Start Date",
-                                inputValue: "actualstartdate"
-                            },
-                            {
-                                name: "startdate",
-                                itemId: "plannedstartdate",
-                                boxLabel: "Planned Start Date",
-                                baseLabel: "Planned Start Date",
-                                inputValue: "plannedstartdate"
-                            },
+                            // {
+                            //     name: "startdate",
+                            //     itemId: "actualstartdate",
+                            //     boxLabel: "Actual Start Date",
+                            //     baseLabel: "Actual Start Date",
+                            //     inputValue: "actualstartdate"
+                            // },
+                            // {
+                            //     name: "startdate",
+                            //     itemId: "plannedstartdate",
+                            //     boxLabel: "Planned Start Date",
+                            //     baseLabel: "Planned Start Date",
+                            //     inputValue: "plannedstartdate"
+                            // },
                             {
                                 xtype: "container",
                                 layout: {
@@ -97,20 +97,20 @@
                                 boxLabel: "Today",
                                 inputValue: "today"
                             },
-                            {
-                                name: "enddate",
-                                itemId: "actualenddate",
-                                boxLabel: "Actual End Date",
-                                baseLabel: "Actual End Date",
-                                inputValue: "actualenddate"
-                            },
-                            {
-                                name: "enddate",
-                                itemId: "plannedenddate",
-                                boxLabel: "Planned End Date",
-                                baseLabel: "Planned End Date",
-                                inputValue: "plannedenddate"
-                            },
+                            // {
+                            //     name: "enddate",
+                            //     itemId: "actualenddate",
+                            //     boxLabel: "Actual End Date",
+                            //     baseLabel: "Actual End Date",
+                            //     inputValue: "actualenddate"
+                            // },
+                            // {
+                            //     name: "enddate",
+                            //     itemId: "plannedenddate",
+                            //     boxLabel: "Planned End Date",
+                            //     baseLabel: "Planned End Date",
+                            //     inputValue: "plannedenddate"
+                            // },
                             {
                                 xtype: "container",
                                 layout: {
@@ -310,7 +310,7 @@
         },
 
         _updateRadioLabel: function (radioComponent, date) {
-            var newLabelValue = radioComponent.baseLabel,
+            var newLabelValue = radioComponent && radioComponent.baseLabel,
                 formattedDate = this.dateToStringDisplay(date);
 
             if (formattedDate) {
